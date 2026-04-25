@@ -2,96 +2,115 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Happy 5th Anniversary ❤️</title>
+<title>Our Love Story ❤️</title>
+
 <style>
-    body {
-        margin: 0;
-        font-family: 'Segoe UI', sans-serif;
-        background: linear-gradient(to right, #ff758c, #ff7eb3);
-        color: white;
-        text-align: center;
-    }
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    color: white;
+    text-align: center;
+}
 
-    .container {
-        padding: 30px 15px;
-    }
+/* ENTRY SCREEN */
+#loginPage {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 
-    h1 {
-        font-size: 2.5em;
-        margin-bottom: 5px;
-    }
+input {
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    margin-top: 10px;
+}
 
-    h2 {
-        font-weight: normal;
-        margin-bottom: 20px;
-    }
+button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background: white;
+    color: #ff4b7d;
+    font-weight: bold;
+    cursor: pointer;
+}
 
-    .photo {
-        max-width: 300px;
-        border-radius: 20px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        margin: 20px auto;
-    }
+/* MAIN CONTENT */
+#mainPage {
+    display: none;
+    padding: 30px 15px;
+}
 
-    .card {
-        background: rgba(255,255,255,0.15);
-        padding: 20px;
-        border-radius: 20px;
-        max-width: 600px;
-        margin: auto;
-        backdrop-filter: blur(10px);
-    }
+.photo {
+    max-width: 300px;
+    border-radius: 20px;
+    margin: 20px auto;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
 
-    .heart {
-        font-size: 35px;
-        animation: beat 1.5s infinite;
-    }
+.card {
+    background: rgba(255,255,255,0.15);
+    padding: 20px;
+    border-radius: 20px;
+    max-width: 600px;
+    margin: auto;
+}
 
-    @keyframes beat {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.2); }
-        100% { transform: scale(1); }
-    }
+.heart {
+    font-size: 35px;
+    animation: beat 1.5s infinite;
+}
 
-    footer {
-        margin-top: 25px;
-        font-size: 14px;
-        opacity: 0.9;
-    }
+@keyframes beat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<!-- LOGIN PAGE -->
+<div id="loginPage">
+    <h2>🔐 A Small Surprise For You ❤️</h2>
+    <p>Enter the date we first met 💕</p>
+    <input type="password" id="password" placeholder="DDMMYYYY">
+    <button onclick="checkPassword()">Unlock</button>
+    <p id="error" style="color: yellow;"></p>
+</div>
+
+<!-- MAIN PAGE -->
+<div id="mainPage">
     <h1>Happy 5th Wedding Anniversary ❤️</h1>
     <h2>Pavithra 💕 Meimozhiselvan</h2>
     <p><b>Since 25.04.2021</b></p>
 
-    <img src="family.jpg" alt="Our Family" class="photo">
+    <img src="family.jpg" class="photo">
 
     <div class="card">
         <p>
-            From the beautiful day we got married on <b>25th April 2021</b>,  
-            our journey has been filled with love, laughter, and unforgettable moments.
+            From the beautiful day we got married on <b>25th April 2021</b>,
+            our journey has been filled with love and happiness.
         </p>
 
         <p>
-            Pavithra, seeing you achieve such a <b>big success</b> after all your patience and hard work
-            makes me so proud. You truly deserve every bit of it ❤️
+            Pavithra, your recent <b>big success</b> makes me incredibly proud ❤️
         </p>
 
         <p>
-            And now, as we are blessed with another beautiful chapter in our life 🤰,
-            my love for you has grown even stronger.
+            And now, as we are blessed with a new life on the way 🤰,
+            my love for you grows stronger every day.
         </p>
 
         <p>
-            You are my strength, my happiness, and the most beautiful part of my life.
-        </p>
-
-        <p>
-            Thank you for being an amazing wife and a wonderful mother.
+            You are my everything — my love, my strength, my happiness.
         </p>
 
         <div class="heart">❤️</div>
@@ -99,10 +118,24 @@
         <p><b>Happy Anniversary My Love!</b></p>
     </div>
 
-    <footer>
-        Forever yours, <br> Meimozhiselvan 💕
-    </footer>
+    <p>Forever yours, <br> Meimozhiselvan 💕</p>
 </div>
+
+<script>
+    // 👉 CHANGE THIS PASSWORD
+    const correctPassword = "15022021"; 
+
+    function checkPassword() {
+        const entered = document.getElementById("password").value;
+
+        if (entered === correctPassword) {
+            document.getElementById("loginPage").style.display = "none";
+            document.getElementById("mainPage").style.display = "block";
+        } else {
+            document.getElementById("error").innerText = "Wrong date 😜 Try again!";
+        }
+    }
+</script>
 
 </body>
 </html>
